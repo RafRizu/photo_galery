@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::redirect('/','/login');
+Route::redirect('/','/dashboard');
 
+Route::get('/dashboard','App\Http\Controllers\GaleriController@index')->name('dashboard');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard','App\Http\Controllers\GaleriController@index')->name('dashboard');
     Route::get('/album/{slug}', 'App\Http\Controllers\GaleriController@showGaleri')->name('albums.show');
 
     Route::get('/galerimu','App\Http\Controllers\GaleriController@yourGaleri')->name('yourGaleri');

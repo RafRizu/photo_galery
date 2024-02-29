@@ -15,17 +15,18 @@ class GaleriController extends Controller
     //
 public function index()
 {
-    $photos = Album::with('user')->get();
-    $fotos = [];
-    $foto = null; // Define $foto variable here
+    $photos = Foto::with('user')->with('likes')->with('komen')->latest()->get();
 
-    foreach ($photos as $album) {
-        $foto = Foto::where('id_album', $album->id)->first();
-        // You might want to handle the case where $foto is null if there's no photo for an album
-        $fotos[$album->id] = $foto;
-    }
+    // $fotos = [];
+    // $foto = null; // Define $foto variable here
 
-    return view('pages.home', compact('photos', 'fotos', 'foto'));
+    // foreach ($photos as $album) {
+    //     $foto = Foto::where('id_album', $album->id)->first();
+    //     // You might want to handle the case where $foto is null if there's no photo for an album
+    //     $fotos[$album->id] = $foto;
+    // }
+
+    return view('pages.home', compact('photos'));
 }
 
 

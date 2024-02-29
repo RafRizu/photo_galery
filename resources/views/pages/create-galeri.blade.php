@@ -12,7 +12,7 @@
                 <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
             </div>
             <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
-            <button type="submit" class="btn btn-primary text-dark">Unggah Foto</button>
+            <button type="submit" class="btn btn-primary text-dark">Unggah Galeri</button>
         </form>
     </div>
 @endsection
